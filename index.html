@@ -5,47 +5,68 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Altaf | Portfolio</title>
   <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
 </head>
 <body>
-  <header>
-    <h1>Hi, I'm Altaf 👋</h1>
-    <p>Web Developer & Tech Enthusiast</p>
-  </header>
-  <section id="about">
-  <h2>About Me</h2>
-  <p>
-    I'm Altaf, a passionate web developer based in Ranchi. I enjoy creating sleek, user-friendly websites and learning new technologies that push the boundaries of creativity. Whether it’s designing visually striking interfaces or writing clean, efficient code—I thrive on turning ideas into digital reality.
-  </p>
-  <p>
-    Outside of coding, you’ll find me exploring tech blogs, experimenting with design tools, or just vibing to good music while sketching out my next big idea. My journey is all about growth, innovation, and collaboration.
-  </p>
-</section>
+  <!-- Navbar -->
+  <nav>
+    <ul class="navbar">
+      <li><a href="#about">About</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
 
+  <!-- Header -->
+  <header class="center-box">
+    <h1>Hi, I'm Altaf 👋</h1>
+    <p>Web Developer • Tech Explorer • Creative Mind</p>
+    <button onclick="toggleDarkMode()">Toggle Dark Mode</button>
+  </header>
+
+  <!-- About Me -->
   <section id="about">
     <h2>About Me</h2>
-    <p>I love building elegant websites and exploring new technologies.</p>
+    <p>
+      I'm Altaf, a passionate web developer from Ranchi. I love crafting digital experiences with modern tools and a creative mindset.
+    </p>
+    <p>
+      Whether it’s front-end styling or backend logic, I’m always learning and building something new. Tech, design, and problem-solving—that's my jam!
+    </p>
   </section>
 
+  <!-- Projects -->
   <section id="projects">
     <h2>Projects</h2>
     <div class="project-card">
-      <h3>Project 1</h3>
-      <p>Description of the project.</p>
+      <h3>Portfolio Website</h3>
+      <p>HTML, CSS, JavaScript • Fully responsive with interactive features</p>
     </div>
-    <!-- Add more project cards -->
+    <div class="project-card">
+      <h3>Weather App</h3>
+      <p>Used OpenWeather API to show real-time weather updates</p>
+    </div>
   </section>
 
- <section id="contact">
-  <h2>Contact Me</h2>
-  <p>Email: altafrj19@gmail.com</p>
-  <p>
-    <a href="https://instagram.com/altaf_raja_2350" target="_blank">
-      Follow me on Instagram <header>click here</header>
-    </a>
-  </p>
-</section>
+  <!-- Contact -->
+  <section id="contact">
+    <h2>Contact Me</h2>
+    <p>Email: altafrj19@gmail.com</p>
+    <p>
+      <a href="https://instagram.com/altaf_raja_2350" target="_blank">
+        <i class="fab fa-instagram"></i> @altaf_raja_2350
+      </a>
+    </p>
+    <p>
+  <a href="https://wa.me/8002296181" target="_blank">
+    <i class="fab fa-whatsapp"></i> Chat with me on WhatsApp
+  </a>
+</p>
+  </section>
+
+  <!-- Footer -->
   <footer>
-    <p>© 2025 Altaf. All rights reserved.</p>
+    <p>© 2025 Altaf. Crafted with ❤️ and curiosity.</p>
   </footer>
 
   <script src="script.js"></script>
