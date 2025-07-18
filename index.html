@@ -1,1019 +1,293 @@
 <!DOCTYPE html>
-<html lang="en" class="dark">
+<html lang="hi">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Altaf Raja | Cybersecurity Solutions</title>
+    <title>आज की ताज़ा खबर - भारत टाइम्स</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Inter:wght@300;400;500;600;700&display=swap');
-        
-        :root {
-            --primary: #3b82f6;
-            --secondary: #10b981;
-            --dark: #0f172a;
-            --light: #f8fafc;
-            --accent: #8b5cf6;
-        }
+        @import url('https://fonts.googleapis.com/css2?family=Hind:wght@400;500;600;700&display=swap');
         
         body {
-            font-family: 'Inter', sans-serif;
-            scroll-behavior: smooth;
-            transition: all 0.3s ease;
+            font-family: 'Hind', sans-serif;
+            background-color: #f5f5f5;
+            color: #333;
         }
         
-        .code-font {
-            font-family: 'Fira Code', monospace;
+        .breaking-news {
+            animation: blink 1.5s infinite;
         }
         
-        .terminal {
-            background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
-            border: 1px solid #334155;
+        @keyframes blink {
+            0% { background-color: #dc2626; }
+            50% { background-color: #ef4444; }
+            100% { background-color: #dc2626; }
         }
         
-        .hacker-animation {
-            background: 
-                linear-gradient(0deg, rgba(15, 23, 42, 0.9) 0%, rgba(59, 130, 246, 0.1) 100%),
-                url('https://media.giphy.com/media/L1CCsR6MZsT3QX0bzS/giphy.gif') center/cover;
-        }
-        
-        .cyber-button {
-            position: relative;
-            overflow: hidden;
-            transition: all 0.3s;
-        }
-        
-        .cyber-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 20px -5px rgba(59, 130, 246, 0.4);
-        }
-        
-        .cyber-button::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(59, 130, 246, 0.4), transparent);
-            transition: 0.5s;
-        }
-        
-        .cyber-button:hover::before {
-            left: 100%;
-        }
-        
-        .cyber-card:hover {
+        .news-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
         }
         
-        .cyber-glow {
-            box-shadow: 0 0 15px rgba(59, 130, 246, 0.5);
-        }
-        
-        .cyber-pulse {
-            animation: pulse 2s infinite;
-        }
-        
-        @keyframes pulse {
-            0% { box-shadow: 0 0 0 0 rgba(59, 130, 246, 0.7); }
-            70% { box-shadow: 0 0 0 10px rgba(59, 130, 246, 0); }
-            100% { box-shadow: 0 0 0 0 rgba(59, 130, 246, 0); }
-        }
-        
-        .glow-text-accent {
-            text-shadow: 0 0 8px rgba(139, 92, 246, 0.7);
-        }
-        
-        .tooltip:hover .tooltip-text {
-            visibility: visible;
-            opacity: 1;
-        }
-        
-        /* Dark mode classes */
-        .dark .dark\:bg-cyber-dark {
-            background-color: #0f172a;
-        }
-        
-        .dark .dark\:text-cyber-light {
-            color: #e2e8f0;
-        }
-        
-        .typewriter h2 {
-            overflow: hidden;
-            border-right: .15em solid var(--primary);
-            white-space: nowrap;
-            margin: 0 auto;
-            letter-spacing: .15em;
-            animation: 
-                typing 3.5s steps(40, end),
-                blink-caret .75s step-end infinite;
-        }
-        
-        @keyframes typing {
-            from { width: 0 }
-            to { width: 100% }
-        }
-        
-        @keyframes blink-caret {
-            from, to { border-color: transparent }
-            50% { border-color: var(--primary) }
+        .category-badge {
+            top: -10px;
+            right: 10px;
         }
     </style>
-    <script>
-        tailwind.config = {
-            darkMode: 'class',
-            theme: {
-                extend: {
-                    colors: {
-                        cyber: {
-                            dark: '#0f172a',
-                            light: '#e2e8f0',
-                            accent: '#8b5cf6',
-                        }
-                    },
-                    fontFamily: {
-                        firacode: ['Fira Code', 'monospace'],
-                        inter: ['Inter', 'sans-serif']
-                    }
-                }
-            }
-        }
-    </script>
 </head>
-<body class="bg-gray-50 dark:bg-gray-900 transition-colors duration-300">
-    <!-- Navigation -->
-    <nav class="bg-white dark:bg-gray-800 shadow-lg sticky top-0 z-50 transition-colors duration-300">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between h-16">
-                <div class="flex items-center">
-                    <div class="flex-shrink-0 flex items-center">
-                        <div class="cyber-glow w-8 h-8 rounded-full bg-accent flex items-center justify-center">
-                            <i class="fas fa-shield-alt text-white"></i>
-                        </div>
-                        <span class="ml-2 text-xl font-bold text-gray-900 dark:text-white">Altaf Raja</span>
-                    </div>
-                </div>
-                <div class="hidden md:flex items-center space-x-8">
-                    <a href="#home" class="text-gray-900 dark:text-gray-300 hover:text-blue-500 px-3 py-2 text-sm font-medium">Home</a>
-                    <a href="#services" class="text-gray-900 dark:text-gray-300 hover:text-blue-500 px-3 py-2 text-sm font-medium">Services</a>
-                    <a href="#experience" class="text-gray-900 dark:text-gray-300 hover:text-blue-500 px-3 py-2 text-sm font-medium">Experience</a>
-                    <a href="#resources" class="text-gray-900 dark:text-gray-300 hover:text-blue-500 px-3 py-2 text-sm font-medium">Resources</a>
-                    <button id="theme-toggle" class="p-2 rounded-md focus:outline-none">
-                        <svg id="theme-icon-dark" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-700 dark:text-gray-300" viewBox="0 0 20 20" fill="currentColor">
-                            <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z" />
-                        </svg>
-                        <svg id="theme-icon-light" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-700 dark:text-gray-300 hidden" viewBox="0 0 20 20" fill="currentColor">
-                            <path fill-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" clip-rule="evenodd" />
-                        </svg>
-                    </button>
-                    <a href="#contact" class="cyber-button bg-blue-600 text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-blue-700 transition">Contact</a>
-                </div>
-                <div class="md:hidden flex items-center">
-                    <button id="mobile-menu-button" class="inline-flex items-center justify-center p-2 rounded-md text-gray-700 dark:text-gray-300 hover:text-blue-500 focus:outline-none">
-                        <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-                        </svg>
-                    </button>
-                </div>
-            </div>
-        </div>
-        <!-- Mobile menu -->
-        <div id="mobile-menu" class="hidden md:hidden bg-white dark:bg-gray-800 border-t border-gray-200 dark:border-gray-700">
-            <div class="px-2 pt-2 pb-3 space-y-1">
-                <a href="#home" class="block px-3 py-2 rounded-md text-base font-medium text-gray-900 dark:text-gray-300 hover:text-blue-500">Home</a>
-                <a href="#services" class="block px-3 py-2 rounded-md text-base font-medium text-gray-900 dark:text-gray-300 hover:text-blue-500">Services</a>
-                <a href="#experience" class="block px-3 py-2 rounded-md text-base font-medium text-gray-900 dark:text-gray-300 hover:text-blue-500">Experience</a>
-                <a href="#resources" class="block px-3 py-2 rounded-md text-base font-medium text-gray-900 dark:text-gray-300 hover:text-blue-500">Resources</a>
-                <div class="flex items-center px-3 py-2">
-                    <span class="text-base font-medium text-gray-900 dark:text-gray-300 mr-3">Theme:</span>
-                    <button id="mobile-theme-toggle" class="p-2 rounded-md focus:outline-none">
-                        <svg id="mobile-theme-icon-dark" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-700 dark:text-gray-300" viewBox="0 0 20 20" fill="currentColor">
-                            <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z" />
-                        </svg>
-                        <svg id="mobile-theme-icon-light" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-700 dark:text-gray-300 hidden" viewBox="0 0 20 20" fill="currentColor">
-                            <path fill-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" clip-rule="evenodd" />
-                        </svg>
-                    </button>
-                </div>
-                <a href="#contact" class="block w-full text-center bg-blue-600 text-white px-4 py-2 rounded-md text-base font-medium hover:bg-blue-700">Contact</a>
-            </div>
-        </div>
-    </nav>
-
-    <!-- Hero Section -->
-    <section id="home" class="hacker-animation text-white py-20 md:py-32">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex flex-col md:flex-row items-center">
-                <div class="md:w-1/2 mb-10 md:mb-0">
-                    <div class="typewriter mb-6">
-                        <h2 class="text-3xl md:text-4xl xl:text-5xl font-bold">Hi, I'm Altaf Raja</h2>
-                    </div>
-                    <p class="glow-text-accent text-lg md:text-xl mb-4 font-firacode">Cybersecurity Expert | Penetration Tester | Security Architect</p>
-                    <p class="text-lg md:text-xl mb-8 opacity-90 max-w-lg">Protecting digital assets with advanced security solutions and strategic threat mitigation for over 8 years.</p>
-                    <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
-                        <a href="#services" class="cyber-button bg-blue-600 text-white px-6 py-3 rounded-md font-medium hover:bg-blue-700 transition flex items-center justify-center">
-                            <i class="fas fa-shield-alt mr-2"></i> My Services
-                        </a>
-                        <a href="#contact" class="cyber-button bg-transparent border-2 border-white text-white px-6 py-3 rounded-md font-medium hover:bg-white hover:text-gray-900 transition flex items-center justify-center">
-                            <i class="fas fa-paper-plane mr-2"></i> Contact Me
-                        </a>
-                    </div>
-                </div>
-                <div class="md:w-1/2 flex justify-center mt-10 md:mt-0">
-                    <div class="relative">
-                        <div class="w-64 h-64 sm:w-80 sm:h-80 bg-gray-800 rounded-full overflow-hidden border-4 border-blue-500">
-                            <img src="https://placehold.co/400x400" alt="Altaf Raja professional portrait - Cybersecurity Expert" class="w-full h-full object-cover">
-                        </div>
-                        <div class="absolute -bottom-4 -right-4 bg-blue-600 text-white px-4 py-2 rounded-lg shadow-lg">
-                            <span class="font-bold">8+ Years</span> Experience
-                        </div>
-                        <div class="absolute -top-6 -left-6 bg-accent text-white px-4 py-2 rounded-lg shadow-lg rotate-12">
-                            <i class="fas fa-certificate mr-1"></i> Certified
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Trust Badges -->
-    <section class="py-12 bg-white dark:bg-gray-800 transition-colors duration-300">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-                <div class="p-4">
-                    <div class="text-3xl font-bold text-blue-600 mb-2">200+</div>
-                    <div class="text-gray-700 dark:text-gray-300">Security Audits</div>
-                </div>
-                <div class="p-4">
-                    <div class="text-3xl font-bold text-green-500 mb-2">100%</div>
-                    <div class="text-gray-700 dark:text-gray-300">Client Satisfaction</div>
-                </div>
-                <div class="p-4">
-                    <div class="text-3xl font-bold text-accent mb-2">50+</div>
-                    <div class="text-gray-700 dark:text-gray-300">Vulnerabilities Found</div>
-                </div>
-                <div class="p-4">
-                    <div class="text-3xl font-bold text-purple-500 mb-2">24/7</div>
-                    <div class="text-gray-700 dark:text-gray-300">Support</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Services Section -->
-    <section id="services" class="py-20 bg-gray-50 dark:bg-gray-900 transition-colors duration-300">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <span class="text-accent font-firacode text-lg mb-2 block">services</span>
-                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">Cybersecurity Services</h2>
-                <p class="max-w-2xl mx-auto text-lg text-gray-600 dark:text-gray-400">Comprehensive protection for your digital assets</p>
+<body class="bg-gray-50">
+    <header class="bg-white shadow-md">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center">
+                <h1 class="text-2xl font-bold text-red-600">भारत टाइम्स</h1>
+                <span class="ml-2 px-2 py-1 bg-red-100 text-red-600 text-xs rounded hidden md:block">LIVE</span>
             </div>
             
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Penetration Testing -->
-                <div class="cyber-card bg-white dark:bg-gray-800 p-8 rounded-xl shadow-md transition duration-300 hover:border-blue-500 border border-transparent">
-                    <div class="w-12 h-12 bg-blue-100 dark:bg-blue-900 rounded-full flex items-center justify-center mb-6">
-                        <i class="fas fa-bug text-blue-600 dark:text-blue-400 text-xl"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">Penetration Testing</h3>
-                    <p class="text-gray-600 dark:text-gray-400 mb-4">Simulate real-world attacks to identify vulnerabilities in your systems before malicious actors exploit them.</p>
-                    <ul class="space-y-2 mb-6">
-                        <li class="flex items-center text-gray-700 dark:text-gray-300">
-                            <i class="fas fa-check-circle text-green-500 mr-2"></i> Web Application Testing
-                        </li>
-                        <li class="flex items-center text-gray-700 dark:text-gray-300">
-                            <i class="fas fa-check-circle text-green-500 mr-2"></i> Network Infrastructure Testing
-                        </li>
-                        <li class="flex items-center text-gray-700 dark:text-gray-300">
-                            <i class="fas fa-check-circle text-green-500 mr-2"></i> API Security Assessment
-                        </li>
-                    </ul>
-                    <a href="#contact" class="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 font-medium inline-flex items-center">
-                        Learn more <i class="fas fa-arrow-right ml-1"></i>
-                    </a>
-                </div>
-                
-                <!-- Security Consulting -->
-                <div class="cyber-card bg-white dark:bg-gray-800 p-8 rounded-xl shadow-md transition duration-300 hover:border-green-500 border border-transparent">
-                    <div class="w-12 h-12 bg-green-100 dark:bg-green-900 rounded-full flex items-center justify-center mb-6">
-                        <i class="fas fa-user-secret text-green-600 dark:text-green-400 text-xl"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">Security Consulting</h3>
-                    <p class="text-gray-600 dark:text-gray-400 mb-4">Strategic guidance to develop and implement security programs that align with your business objectives.</p>
-                    <ul class="space-y-2 mb-6">
-                        <li class="flex items-center text-gray-700 dark:text-gray-300">
-                            <i class="fas fa-check-circle text-green-500 mr-2"></i> Risk Assessment
-                        </li>
-                        <li class="flex items-center text-gray-700 dark:text-gray-300">
-                            <i class="fas fa-check-circle text-green-500 mr-2"></i> Compliance Guidance
-                        </li>
-                        <li class="flex items-center text-gray-700 dark:text-gray-300">
-                            <i class="fas fa-check-circle text-green-500 mr-2"></i> Security Architecture Review
-                        </li>
-                    </ul>
-                    <a href="#contact" class="text-green-600 dark:text-green-400 hover:text-green-800 dark:hover:text-green-300 font-medium inline-flex items-center">
-                        Learn more <i class="fas fa-arrow-right ml-1"></i>
-                    </a>
-                </div>
-                
-                <!-- Incident Response -->
-                <div class="cyber-card bg-white dark:bg-gray-800 p-8 rounded-xl shadow-md transition duration-300 hover:border-accent border border-transparent">
-                    <div class="w-12 h-12 bg-purple-100 dark:bg-purple-900 rounded-full flex items-center justify-center mb-6">
-                        <i class="fas fa-fire-extinguisher text-accent dark:text-purple-400 text-xl"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">Incident Response</h3>
-                    <p class="text-gray-600 dark:text-gray-400 mb-4">Rapid response and recovery when security incidents occur to minimize damage and restore operations.</p>
-                    <ul class="space-y-2 mb-6">
-                        <li class="flex items-center text-gray-700 dark:text-gray-300">
-                            <i class="fas fa-check-circle text-green-500 mr-2"></i> 24/7 Emergency Support
-                        </li>
-                        <li class="flex items-center text-gray-700 dark:text-gray-300">
-                            <i class="fas fa-check-circle text-green-500 mr-2"></i> Forensic Investigation
-                        </li>
-                        <li class="flex items-center text-gray-700 dark:text-gray-300">
-                            <i class="fas fa-check-circle text-green-500 mr-2"></i> Post-Incident Analysis
-                        </li>
-                    </ul>
-                    <a href="#contact" class="text-accent dark:text-purple-400 hover:text-purple-800 dark:hover:text-purple-300 font-medium inline-flex items-center">
-                        Learn more <i class="fas fa-arrow-right ml-1"></i>
-                    </a>
-                </div>
-                
-                <!-- Security Training -->
-                <div class="cyber-card bg-white dark:bg-gray-800 p-8 rounded-xl shadow-md transition duration-300 hover:border-red-500 border border-transparent">
-                    <div class="w-12 h-12 bg-red-100 dark:bg-red-900 rounded-full flex items-center justify-center mb-6">
-                        <i class="fas fa-graduation-cap text-red-600 dark:text-red-400 text-xl"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">Security Training</h3>
-                    <p class="text-gray-600 dark:text-gray-400 mb-4">Empower your team with cybersecurity awareness and technical skills to defend against threats.</p>
-                    <ul class="space-y-2 mb-6">
-                        <li class="flex items-center text-gray-700 dark:text-gray-300">
-                            <i class="fas fa-check-circle text-green-500 mr-2"></i> Phishing Simulations
-                        </li>
-                        <li class="flex items-center text-gray-700 dark:text-gray-300">
-                            <i class="fas fa-check-circle text-green-500 mr-2"></i> Secure Coding Workshops
-                        </li>
-                        <li class="flex items-center text-gray-700 dark:text-gray-300">
-                            <i class="fas fa-check-circle text-green-500 mr-2"></i> Executive Briefings
-                        </li>
-                    </ul>
-                    <a href="#contact" class="text-red-600 dark:text-red-400 hover:text-red-800 dark:hover:text-red-300 font-medium inline-flex items-center">
-                        Learn more <i class="fas fa-arrow-right ml-1"></i>
-                    </a>
-                </div>
-                
-                <!-- Cloud Security -->
-                <div class="cyber-card bg-white dark:bg-gray-800 p-8 rounded-xl shadow-md transition duration-300 hover:border-yellow-500 border border-transparent">
-                    <div class="w-12 h-12 bg-yellow-100 dark:bg-yellow-900 rounded-full flex items-center justify-center mb-6">
-                        <i class="fas fa-cloud text-yellow-600 dark:text-yellow-400 text-xl"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">Cloud Security</h3>
-                    <p class="text-gray-600 dark:text-gray-400 mb-4">Secure your cloud environments with architecture reviews, configuration audits, and continuous monitoring.</p>
-                    <ul class="space-y-2 mb-6">
-                        <li class="flex items-center text-gray-700 dark:text-gray-300">
-                            <i class="fas fa-check-circle text-green-500 mr-2"></i> AWS Security
-                        </li>
-                        <li class="flex items-center text-gray-700 dark:text-gray-300">
-                            <i class="fas fa-check-circle text-green-500 mr-2"></i> Azure Security
-                        </li>
-                        <li class="flex items-center text-gray-700 dark:text-gray-300">
-                            <i class="fas fa-check-circle text-green-500 mr-2"></i> GCP Security
-                        </li>
-                    </ul>
-                    <a href="#contact" class="text-yellow-600 dark:text-yellow-400 hover:text-yellow-800 dark:hover:text-yellow-300 font-medium inline-flex items-center">
-                        Learn more <i class="fas fa-arrow-right ml-1"></i>
-                    </a>
-                </div>
-                
-                <!-- Compliance Advisory -->
-                <div class="cyber-card bg-white dark:bg-gray-800 p-8 rounded-xl shadow-md transition duration-300 hover:border-pink-500 border border-transparent">
-                    <div class="w-12 h-12 bg-pink-100 dark:bg-pink-900 rounded-full flex items-center justify-center mb-6">
-                        <i class="fas fa-file-contract text-pink-600 dark:text-pink-400 text-xl"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">Compliance Advisory</h3>
-                    <p class="text-gray-600 dark:text-gray-400 mb-4">Navigate complex regulatory requirements and achieve compliance with industry standards and frameworks.</p>
-                    <ul class="space-y-2 mb-6">
-                        <li class="flex items-center text-gray-700 dark:text-gray-300">
-                            <i class="fas fa-check-circle text-green-500 mr-2"></i> ISO 27001
-                        </li>
-                        <li class="flex items-center text-gray-700 dark:text-gray-300">
-                            <i class="fas fa-check-circle text-green-500 mr-2"></i> SOC 2
-                        </li>
-                        <li class="flex items-center text-gray-700 dark:text-gray-300">
-                            <i class="fas fa-check-circle text-green-500 mr-2"></i> GDPR
-                        </li>
-                    </ul>
-                    <a href="#contact" class="text-pink-600 dark:text-pink-400 hover:text-pink-800 dark:hover:text-pink-300 font-medium inline-flex items-center">
-                        Learn more <i class="fas fa-arrow-right ml-1"></i>
-                    </a>
-                </div>
+            <div class="flex items-center space-x-4">
+                <button class="text-gray-600 hover:text-gray-900">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                    </svg>
+                </button>
+                <button class="md:hidden text-gray-600 hover:text-gray-900">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                    </svg>
+                </button>
             </div>
         </div>
-    </section>
-
-    <!-- Experience Section -->
-    <section id="experience" class="py-20 bg-white dark:bg-gray-800 transition-colors duration-300">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <span class="text-accent font-firacode text-lg mb-2 block">credentials</span>
-                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">Professional Experience</h2>
-                <p class="max-w-2xl mx-auto text-lg text-gray-600 dark:text-gray-400">My cybersecurity journey and qualifications</p>
+        
+        <nav class="bg-red-600 text-white">
+            <div class="container mx-auto px-4">
+                <ul class="flex overflow-x-auto py-2 space-x-6 whitespace-nowrap">
+                    <li><a href="#" class="px-2 py-1 font-medium hover:bg-red-700 rounded">मुख्य समाचार</a></li>
+                    <li><a href="#" class="px-2 py-1 font-medium hover:bg-red-700 rounded">राजनीति</a></li>
+                    <li><a href="#" class="px-2 py-1 font-medium hover:bg-red-700 rounded">खेल</a></li>
+                    <li><a href="#" class="px-2 py-1 font-medium hover:bg-red-700 rounded">मनोरंजन</a></li>
+                    <li><a href="#" class="px-2 py-1 font-medium hover:bg-red-700 rounded">व्यापार</a></li>
+                    <li><a href="#" class="px-2 py-1 font-medium hover:bg-red-700 rounded">तकनीक</a></li>
+                    <li><a href="#" class="px-2 py-1 font-medium hover:bg-red-700 rounded">देश-विदेश</a></li>
+                </ul>
             </div>
-            
-            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
-                <!-- Experience Timeline -->
-                <div class="lg:col-span-2">
-                    <div class="bg-gray-50 dark:bg-gray-700 p-8 rounded-xl shadow-sm">
-                        <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-6">Work History</h3>
-                        
-                        <div class="space-y-8">
-                            <!-- Experience 1 -->
-                            <div class="relative pl-8 border-l-2 border-blue-500">
-                                <div class="absolute -left-2 top-0 w-4 h-4 rounded-full bg-blue-500"></div>
-                                <div class="pl-4">
-                                    <h4 class="text-xl font-bold text-gray-900 dark:text-white">Senior Security Consultant</h4>
-                                    <p class="text-gray-600 dark:text-gray-300 mb-2">SecureNet Solutions | 2019 - Present</p>
-                                    <ul class="list-disc pl-5 text-gray-700 dark:text-gray-300 space-y-1">
-                                        <li>Lead penetration testing engagements for Fortune 500 clients</li>
-                                        <li>Developed security architecture for cloud migration projects</li>
-                                        <li>Trained 50+ engineers in secure coding practices</li>
-                                    </ul>
-                                </div>
-                            </div>
-                            
-                            <!-- Experience 2 -->
-                            <div class="relative pl-8 border-l-2 border-green-500">
-                                <div class="absolute -left-2 top-0 w-4 h-4 rounded-full bg-green-500"></div>
-                                <div class="pl-4">
-                                    <h4 class="text-xl font-bold text-gray-900 dark:text-white">Security Engineer</h4>
-                                    <p class="text-gray-600 dark:text-gray-300 mb-2">CyberDefense Inc. | 2016 - 2019</p>
-                                    <ul class="list-disc pl-5 text-gray-700 dark:text-gray-300 space-y-1">
-                                        <li>Implemented SIEM solutions for real-time threat detection</li>
-                                        <li>Conducted 100+ vulnerability assessments</li>
-                                        <li>Led incident response for 3 major security breaches</li>
-                                    </ul>
-                                </div>
-                            </div>
-                            
-                            <!-- Experience 3 -->
-                            <div class="relative pl-8 border-l-2 border-accent">
-                                <div class="absolute -left-2 top-0 w-4 h-4 rounded-full bg-accent"></div>
-                                <div class="pl-4">
-                                    <h4 class="text-xl font-bold text-gray-900 dark:text-white">Security Analyst</h4>
-                                    <p class="text-gray-600 dark:text-gray-300 mb-2">DataGuard Systems | 2013 - 2016</p>
-                                    <ul class="list-disc pl-5 text-gray-700 dark:text-gray-300 space-y-1">
-                                        <li>Monitored network traffic for security incidents</li>
-                                        <li>Implemented IDS/IPS solutions</li>
-                                        <li>Developed security policies and procedures</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Certifications -->
-                <div>
-                    <div class="bg-gray-50 dark:bg-gray-700 p-8 rounded-xl shadow-sm h-full">
-                        <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-6">Certifications</h3>
-                        
-                        <div class="space-y-6">
-                            <!-- OSCP -->
-                            <div class="flex items-start">
-                                <div class="flex-shrink-0 bg-blue-500 p-2 rounded-lg">
-                                    <i class="fas fa-shield-alt text-white text-xl"></i>
-                                </div>
-                                <div class="ml-4">
-                                    <h4 class="text-lg font-bold text-gray-900 dark:text-white">OSCP</h4>
-                                    <p class="text-gray-600 dark:text-gray-300">Offensive Security Certified Professional</p>
-                                    <p class="text-sm text-gray-500 dark:text-gray-400 mt-1">Issued 2018 | Offensive Security</p>
-                                </div>
-                            </div>
-                            
-                            <!-- CISSP -->
-                            <div class="flex items-start">
-                                <div class="flex-shrink-0 bg-green-500 p-2 rounded-lg">
-                                    <i class="fas fa-user-secret text-white text-xl"></i>
-                                </div>
-                                <div class="ml-4">
-                                    <h4 class="text-lg font-bold text-gray-900 dark:text-white">CISSP</h4>
-                                    <p class="text-gray-600 dark:text-gray-300">Certified Information Systems Security Professional</p>
-                                    <p class="text-sm text-gray-500 dark:text-gray-400 mt-1">Issued 2017 | (ISC)²</p>
-                                </div>
-                            </div>
-                            
-                            <!-- CEH -->
-                            <div class="flex items-start">
-                                <div class="flex-shrink-0 bg-purple-500 p-2 rounded-lg">
-                                    <i class="fas fa-search text-white text-xl"></i>
-                                </div>
-                                <div class="ml-4">
-                                    <h4 class="text-lg font-bold text-gray-900 dark:text-white">CEH</h4>
-                                    <p class="text-gray-600 dark:text-gray-300">Certified Ethical Hacker</p>
-                                    <p class="text-sm text-gray-500 dark:text-gray-400 mt-1">Issued 2016 | EC-Council</p>
-                                </div>
-                            </div>
-                            
-                            <!-- CISM -->
-                            <div class="flex items-start">
-                                <div class="flex-shrink-0 bg-yellow-500 p-2 rounded-lg">
-                                    <i class="fas fa-chart-line text-white text-xl"></i>
-                                </div>
-                                <div class="ml-4">
-                                    <h4 class="text-lg font-bold text-gray-900 dark:text-white">CISM</h4>
-                                    <p class="text-gray-600 dark:text-gray-300">Certified Information Security Manager</p>
-                                    <p class="text-sm text-gray-500 dark:text-gray-400 mt-1">Issued 2019 | ISACA</p>
-                                </div>
-                            </div>
-                            
-                            <!-- CompTIA Security+ -->
-                            <div class="flex items-start">
-                                <div class="flex-shrink-0 bg-red-500 p-2 rounded-lg">
-                                    <i class="fas fa-lock text-white text-xl"></i>
-                                </div>
-                                <div class="ml-4">
-                                    <h4 class="text-lg font-bold text-gray-900 dark:text-white">Security+</h4>
-                                    <p class="text-gray-600 dark:text-gray-300">CompTIA Security+</p>
-                                    <p class="text-sm text-gray-500 dark:text-gray-400 mt-1">Issued 2015 | CompTIA</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        </nav>
+    </header>
+    
+    <!-- Breaking News Ticker -->
+    <div class="bg-yellow-100 border-t border-b border-yellow-200 py-2 px-4">
+        <div class="container mx-auto flex items-center">
+            <span class="bg-red-600 text-white px-2 py-1 text-xs font-bold mr-3">ताज़ा खबर</span>
+            <marquee class="text-sm font-medium" behavior="scroll" direction="left">
+                भारत-पाकिस्तान मैच आज शाम 7 बजे | दिल्ली में आज हड़ताल, स्कूल-कालेज बंद | मुंबई लोकल में बड़ी बाधा, पश्चिमी रेलवे की सेवाएं प्रभावित
+            </marquee>
         </div>
-    </section>
-
-    <!-- Resources Section -->
-    <section id="resources" class="py-20 bg-gray-50 dark:bg-gray-900 transition-colors duration-300">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <span class="text-accent font-firacode text-lg mb-2 block">resources</span>
-                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">Cybersecurity Resources</h2>
-                <p class="max-w-2xl mx-auto text-lg text-gray-600 dark:text-gray-400">Tools and knowledge to enhance your security posture</p>
-            </div>
-            
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
-                <!-- Interactive Terminal -->
-                <div class="terminal rounded-lg overflow-hidden">
-                    <div class="terminal-header flex items-center p-3">
-                        <div class="flex space-x-2 mr-3">
-                            <span class="terminal-button bg-red-500"></span>
-                            <span class="terminal-button bg-yellow-500"></span>
-                            <span class="terminal-button bg-green-500"></span>
-                        </div>
-                        <p class="text-gray-300 text-sm font-firacode">bash</p>
-                    </div>
-                    <div class="terminal-content p-4">
-                        <div class="font-firacode text-green-400 mb-2">altaf@cybershield:~$ <span class="text-white">whoami</span></div>
-                        <div class="font-firacode text-white mb-4">altaf-raja cybersecurity-specialist</div>
-                        
-                        <div class="font-firacode text-green-400 mb-2">altaf@cybershield:~$ <span class="text-white">ls tools</span></div>
-                        <div class="font-firacode text-white mb-4 grid grid-cols-2 gap-2">
-                            <span>nmap</span>
-                            <span>metasploit</span>
-                            <span>burp-suite</span>
-                            <span>wireshark</span>
-                            <span>john</span>
-                            <span>hydra</span>
-                        </div>
-                        
-                        <div class="font-firacode text-green-400 mb-2">altaf@cybershield:~$ <span class="text-white">./threat_analyzer --current-year</span></div>
-                        <div class="font-firacode text-white mb-4">
-                            <p>Current Threat Landscape (2023):</p>
-                            <p>- Ransomware up 35%</p>
-                            <p>- Cloud attacks up 50%</p>
-                            <p>- Phishing up 28%</p>
-                        </div>
-                        
-                        <div class="command-line flex items-center p-2 rounded">
-                            <span class="font-firacode text-green-400 mr-2">altaf@cybershield:~$</span>
-                            <input type="text" class="font-firacode bg-transparent text-white outline-none flex-1" placeholder="try: help or contact">
-                        </div>
-                    </div>
-                </div>
+    </div>
+    
+    <main class="container mx-auto px-4 py-6">
+        <!-- Top Story -->
+        <section class="mb-8">
+            <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/3cb7ee43-1d07-4742-adb1-df4cdac4c575.png" alt="भारतीय प्रधानमंत्री रेड कार्पेट पर खड़े हैं, पीछे भारतीय झंडा लहरा रहा है, औपचारिक सूट में" class="w-full h-64 md:h-96 object-cover" />
                 
-                <!-- Latest Threats -->
-                <div class="bg-white dark:bg-gray-800 rounded-xl shadow-md p-6">
-                    <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-6">Latest Threat Alerts</h3>
+                <div class="p-4 md:p-6">
+                    <div class="flex justify-between items-center mb-2">
+                        <span class="text-xs font-medium text-red-600">राजनीति</span>
+                        <span class="text-xs text-gray-500">10 मिनट पहले</span>
+                    </div>
                     
-                    <div class="space-y-4">
-                        <!-- Threat 1 -->
-                        <div class="border-b border-gray-200 dark:border-gray-700 pb-4">
-                            <div class="flex justify-between items-start mb-2">
-                                <h4 class="font-bold text-gray-900 dark:text-white">Log4j2 Vulnerability (CVE-2021-44228)</h4>
-                                <span class="text-xs bg-red-100 dark:bg-red-900 text-red-800 dark:text-red-200 px-2 py-1 rounded-full">Critical</span>
-                            </div>
-                            <p class="text-sm text-gray-600 dark:text-gray-400 mb-2">Remote code execution vulnerability in Apache Log4j2 affecting millions of systems.</p>
-                            <div class="flex items-center text-xs text-gray-500 dark:text-gray-400">
-                                <span class="mr-3"><i class="fas fa-calendar-alt mr-1"></i> Dec 2021</span>
-                                <span><i class="fas fa-exclamation-triangle mr-1"></i> CVSS: 10.0</span>
-                            </div>
+                    <h2 class="text-xl md:text-2xl font-bold mb-2">प्रधानमंत्री मोदी ने G20 शिखर सम्मेलन में भारत की अर्थव्यवस्था पर जोर दिया</h2>
+                    
+                    <p class="text-gray-700 mb-4">नई दिल्ली: प्रधानमंत्री नरेंद्र मोदी ने आज G20 शिखर सम्मेलन में भारत की आर्थिक विकास दर और डिजिटल इंडिया पहल के बारे में विस्तार से बात की...</p>
+                    
+                    <div class="flex items-center">
+                        <div class="w-8 h-8 rounded-full bg-gray-300 overflow-hidden mr-2">
+                            <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/6cf06930-8b9e-4f73-8f6a-c56eab6d8726.png" alt="रिपोर्टर का छोटा चित्र, हल्के भूरे रंग की शर्ट और काले फ्रेम के चश्मे में" class="w-full h-full object-cover">
+                        </div>
+                        <span class="text-sm font-medium">राहुल शर्मा</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- News Grid -->
+        <section class="mb-8">
+            <h2 class="text-xl font-bold mb-4 pb-2 border-b border-gray-200">ताज़ा खबरें</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- News Card 1 -->
+                <div class="news-card bg-white rounded-lg shadow-md overflow-hidden transition duration-300 relative">
+                    <span class="category-badge absolute bg-green-600 text-white text-xs px-2 py-1 rounded">खेल</span>
+                    
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/99bbb05f-f35b-47eb-98e3-1c6a28981e5e.png" alt="भारतीय क्रिकेट टीम जीत का जश्न मनाते हुए, मैदान पर एक साथ खड़े खिलाड़ी" class="w-full h-48 object-cover" />
+                    
+                    <div class="p-4">
+                        <div class="flex justify-between items-center mb-2">
+                            <span class="text-xs text-gray-500">30 मिनट पहले</span>
+                            <span class="text-xs font-medium text-gray-400">250 व्यूज</span>
                         </div>
                         
-                        <!-- Threat 2 -->
-                        <div class="border-b border-gray-200 dark:border-gray-700 pb-4">
-                            <div class="flex justify-between items-start mb-2">
-                                <h4 class="font-bold text-gray-900 dark:text-white">Spring4Shell (CVE-2022-22965)</h4>
-                                <span class="text-xs bg-orange-100 dark:bg-orange-900 text-orange-800 dark:text-orange-200 px-2 py-1 rounded-full">High</span>
-                            </div>
-                            <p class="text-sm text-gray-600 dark:text-gray-400 mb-2">RCE vulnerability in Spring Framework affecting Java applications.</p>
-                            <div class="flex items-center text-xs text-gray-500 dark:text-gray-400">
-                                <span class="mr-3"><i class="fas fa-calendar-alt mr-1"></i> Mar 2022</span>
-                                <span><i class="fas fa-exclamation-triangle mr-1"></i> CVSS: 9.8</span>
-                            </div>
+                        <h3 class="font-bold mb-2">भारत ने ऑस्ट्रेलिया को हराकर T20 श्रृंखला जीती</h3>
+                        
+                        <p class="text-sm text-gray-600 line-clamp-2">विराट कोहली के अर्धशतक के बाद भुवनेश्वर कुमार की शानदार गेंदबाजी ने भारत को ऑस्ट्रेलिया के खिलाफ T20 श्रृंखला में जीत दिला दी...</p>
+                    </div>
+                </div>
+                
+                <!-- News Card 2 -->
+                <div class="news-card bg-white rounded-lg shadow-md overflow-hidden transition duration-300 relative">
+                    <span class="category-badge absolute bg-purple-600 text-white text-xs px-2 py-1 rounded">मनोरंजन</span>
+                    
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/decce4d8-9b0a-4e48-926a-207d98728975.png" alt="बॉलीवुड अभिनेता और अभिनेत्री लाल कार्पेट पर पोज़ देते हुए, फ्लैश लाइट्स चमक रही हैं" class="w-full h-48 object-cover" />
+                    
+                    <div class="p-4">
+                        <div class="flex justify-between items-center mb-2">
+                            <span class="text-xs text-gray-500">1 घंटा पहले</span>
+                            <span class="text-xs font-medium text-gray-400">420 व्यूज</span>
                         </div>
                         
-                        <!-- Threat 3 -->
-                        <div class="pb-4">
-                            <div class="flex justify-between items-start mb-2">
-                                <h4 class="font-bold text-gray-900 dark:text-white">ProxyNotShell (CVE-2022-41082)</h4>
-                                <span class="text-xs bg-orange-100 dark:bg-orange-900 text-orange-800 dark:text-orange-200 px-2 py-1 rounded-full">High</span>
-                            </div>
-                            <p class="text-sm text-gray-600 dark:text-gray-400 mb-2">RCE vulnerability chain affecting Microsoft Exchange Server.</p>
-                            <div class="flex items-center text-xs text-gray-500 dark:text-gray-400">
-                                <span class="mr-3"><i class="fas fa-calendar-alt mr-1"></i> Sep 2022</span>
-                                <span><i class="fas fa-exclamation-triangle mr-1"></i> CVSS: 8.8</span>
-                            </div>
+                        <h3 class="font-bold mb-2">फिल्मफेयर अवार्ड्स 2023: पूरी लिस्ट जारी</h3>
+                        
+                        <p class="text-sm text-gray-600 line-clamp-2">फिल्मफेयर अवार्ड्स 2023 में बेस्ट एक्टर का अवार्ड राजकुमार राव को मिला जबकि आलिया भट्ट ने बेस्ट एक्ट्रेस का खिताब जीता...</p>
+                    </div>
+                </div>
+                
+                <!-- News Card 3 -->
+                <div class="news-card bg-white rounded-lg shadow-md overflow-hidden transition duration-300 relative">
+                    <span class="category-badge absolute bg-blue-600 text-white text-xs px-2 py-1 rounded">तकनीक</span>
+                    
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/d934e3e0-d968-48c0-b897-38432f0e55d5.png" alt="नया स्मार्टफोन फुटेज जिसमें एक कामकाजी व्यक्ति इसका इस्तेमाल करते हुए दिख रहा है" class="w-full h-48 object-cover" />
+                    
+                    <div class="p-4">
+                        <div class="flex justify-between items-center mb-2">
+                            <span class="text-xs text-gray-500">2 घंटे पहले</span>
+                            <span class="text-xs font-medium text-gray-400">310 व्यूज</span>
+                        </div>
+                        
+                        <h3 class="font-bold mb-2">आईफोन 15 भारत में लॉन्च, कीमत और फीचर्स</h3>
+                        
+                        <p class="text-sm text-gray-600 line-clamp-2">एप्पल ने आज भारत में आईफोन 15 सीरीज लॉन्च की है। बेस मॉडल की कीमत 79,900 रुपये से शुरू होती है। टाइटेनियम बॉडी और USB-C पोर्ट इसकी खास विशेषताएं हैं...</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Weather and Stock Section -->
+        <section class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+            <!-- Weather Widget -->
+            <div class="bg-white rounded-lg shadow-md p-4">
+                <h3 class="font-bold mb-4 pb-2 border-b border-gray-200 flex items-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 text-blue-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+                    </svg>
+                    आज का मौसम (दिल्ली)
+                </h3>
+                
+                <div class="flex items-center justify-between">
+                    <div class="flex items-center">
+                        <div class="text-4xl font-bold mr-4">32°C</div>
+                        <div>
+                            <div class="font-medium">आंशिक रूप से बादल</div>
+                            <div class="text-xs text-gray-500">H: 34° L: 24°</div>
                         </div>
                     </div>
                     
-                    <a href="#" class="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 font-medium inline-flex items-center mt-4">
-                        View all threat alerts <i class="fas fa-arrow-right ml-1"></i>
-                    </a>
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/b76b00c7-2493-4561-9bad-af9f8610b19c.png" alt="आंशिक रूप से बादल वाला आसमान और सूरज के साथ मौसम आइकन" class="w-16 h-16" />
+                </div>
+                
+                <div class="grid grid-cols-5 gap-2 mt-4 text-xs">
+                    <div class="text-center">
+                        <div class="font-medium">सुबह</div>
+                        <div>28°</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="font-medium">दोपहर</div>
+                        <div>34°</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="font-medium">शाम</div>
+                        <div>30°</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="font-medium">रात</div>
+                        <div>26°</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="font-medium">कल</div>
+                        <div>33°</div>
+                    </div>
                 </div>
             </div>
             
-            <!-- Security Tools -->
-            <div>
-                <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-6">Recommended Security Tools</h3>
+            <!-- Stock Widget -->
+            <div class="bg-white rounded-lg shadow-md p-4">
+                <h3 class="font-bold mb-4 pb-2 border-b border-gray-200 flex items-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+                    </svg>
+                    शेयर बाजार
+                </h3>
                 
-                <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-                    <!-- Tool 1 -->
-                    <a href="#" class="bg-white dark:bg-gray-800 p-4 rounded-lg shadow-sm hover:shadow-md transition flex flex-col items-center group">
-                        <div class="w-12 h-12 bg-blue-100 dark:bg-blue-900 rounded-lg flex items-center justify-center mb-3">
-                            <i class="fas fa-network-wired text-blue-600 dark:text-blue-400 text-xl"></i>
-                        </div>
-                        <h4 class="font-bold text-gray-900 dark:text-white text-center group-hover:text-blue-600 dark:group-hover:text-blue-400">Nmap</h4>
-                        <p class="text-xs text-gray-600 dark:text-gray-400 text-center">Network Scanner</p>
-                    </a>
-                    
-                    <!-- Tool 2 -->
-                    <a href="#" class="bg-white dark:bg-gray-800 p-4 rounded-lg shadow-sm hover:shadow-md transition flex flex-col items-center group">
-                        <div class="w-12 h-12 bg-green-100 dark:bg-green-900 rounded-lg flex items-center justify-center mb-3">
-                            <i class="fas fa-shield-alt text-green-600 dark:text-green-400 text-xl"></i>
-                        </div>
-                        <h4 class="font-bold text-gray-900 dark:text-white text-center group-hover:text-green-600 dark:group-hover:text-green-400">Burp Suite</h4>
-                        <p class="text-xs text-gray-600 dark:text-gray-400 text-center">Web Testing</p>
-                    </a>
-                    
-                    <!-- Tool 3 -->
-                    <a href="#" class="bg-white dark:bg-gray-800 p-4 rounded-lg shadow-sm hover:shadow-md transition flex flex-col items-center group">
-                        <div class="w-12 h-12 bg-purple-100 dark:bg-purple-900 rounded-lg flex items-center justify-center mb-3">
-                            <i class="fas fa-terminal text-purple-600 dark:text-purple-400 text-xl"></i>
-                        </div>
-                        <h4 class="font-bold text-gray-900 dark:text-white text-center group-hover:text-purple-600 dark:group-hover:text-purple-400">Metasploit</h4>
-                        <p class="text-xs text-gray-600 dark:text-gray-400 text-center">Exploitation</p>
-                    </a>
-                    
-                    <!-- Tool 4 -->
-                    <a href="#" class="bg-white dark:bg-gray-800 p-4 rounded-lg shadow-sm hover:shadow-md transition flex flex-col items-center group">
-                        <div class="w-12 h-12 bg-red-100 dark:bg-red-900 rounded-lg flex items-center justify-center mb-3">
-                            <i class="fas fa-eye text-red-600 dark:text-red-400 text-xl"></i>
-                        </div>
-                        <h4 class="font-bold text-gray-900 dark:text-white text-center group-hover:text-red-600 dark:group-hover:text-red-400">Wireshark</h4>
-                        <p class="text-xs text-gray-600 dark:text-gray-400 text-center">Packet Analysis</p>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="py-20 bg-white dark:bg-gray-800 transition-colors duration-300">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-16">
-                <!-- Contact Form -->
-                <div>
-                    <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-2">Get In Touch</h2>
-                    <p class="text-gray-600 dark:text-gray-400 mb-8">Ready to secure your digital assets? Contact me for a consultation.</p>
-                    
-                    <form class="space-y-6">
-                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                            <div>
-                                <label for="first-name" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">First name</label>
-                                <input type="text" name="first-name" id="first-name" class="w-full rounded-md border-gray-300 dark:border-gray-600 shadow-sm focus:border-blue-500 focus:ring-blue-500 bg-white dark:bg-gray-700 text-gray-900 dark:text-white p-3">
-                            </div>
-                            <div>
-                                <label for="last-name" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Last name</label>
-                                <input type="text" name="last-name" id="last-name" class="w-full rounded-md border-gray-300 dark:border-gray-600 shadow-sm focus:border-blue-500 focus:ring-blue-500 bg-white dark:bg-gray-700 text-gray-900 dark:text-white p-3">
-                            </div>
-                        </div>
-                        <div>
-                            <label for="email" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Email</label>
-                            <input type="email" name="email" id="email" class="w-full rounded-md border-gray-300 dark:border-gray-600 shadow-sm focus:border-blue-500 focus:ring-blue-500 bg-white dark:bg-gray-700 text-gray-900 dark:text-white p-3">
-                        </div>
-                        <div>
-                            <label for="phone" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Phone</label>
-                            <input type="tel" name="phone" id="phone" class="w-full rounded-md border-gray-300 dark:border-gray-600 shadow-sm focus:border-blue-500 focus:ring-blue-500 bg-white dark:bg-gray-700 text-gray-900 dark:text-white p-3">
-                        </div>
-                        <div>
-                            <label for="service" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Service Needed</label>
-                            <select id="service" name="service" class="w-full rounded-md border-gray-300 dark:border-gray-600 shadow-sm focus:border-blue-500 focus:ring-blue-500 bg-white dark:bg-gray-700 text-gray-900 dark:text-white p-3">
-                                <option>Penetration Testing</option>
-                                <option>Security Audit</option>
-                                <option>Incident Response</option>
-                                <option>Security Training</option>
-                                <option>Consulting</option>
-                                <option>Other</option>
-                            </select>
-                        </div>
-                        <div>
-                            <label for="message" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Message</label>
-                            <textarea id="message" name="message" rows="4" class="w-full rounded-md border-gray-300 dark:border-gray-600 shadow-sm focus:border-blue-500 focus:ring-blue-500 bg-white dark:bg-gray-700 text-gray-900 dark:text-white p-3"></textarea>
-                        </div>
+                <div class="space-y-3">
+                    <div class="flex justify-between">
+                        <span>SENSEX</span>
                         <div class="flex items-center">
-                            <input id="privacy-policy" name="privacy-policy" type="checkbox" class="h-4 w-4 rounded border-gray-300 dark:border-gray-600 text-blue-600 focus:ring-blue-500 bg-white dark:bg-gray-700">
-                            <label for="privacy-policy" class="ml-2 block text-sm text-gray-700 dark:text-gray-300">I agree to the <a href="#" class="text-blue-600 dark:text-blue-400 hover:text-blue-500 dark:hover:text-blue-300">Privacy Policy</a></label>
+                            <span class="font-medium mr-2">65,124.21</span>
+                            <span class="text-xs bg-green-100 text-green-800 px-1 py-0.5 rounded">+125.45 (0.19%)</span>
                         </div>
-                        <div>
-                            <button type="submit" class="cyber-button w-full flex justify-center py-3 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
-                                <i class="fas fa-paper-plane mr-2"></i> Send Message
-                            </button>
+                    </div>
+                    
+                    <div class="flex justify-between">
+                        <span>NIFTY 50</span>
+                        <div class="flex items-center">
+                            <span class="font-medium mr-2">19,428.20</span>
+                            <span class="text-xs bg-green-100 text-green-800 px-1 py-0.5 rounded">+34.85 (0.18%)</span>
                         </div>
-                    </form>
-                </div>
-                
-                <!-- Contact Info -->
-                <div class="flex flex-col">
-                    <div class="bg-gray-50 dark:bg-gray-700 p-8 rounded-xl h-full">
-                        <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-6">Contact Information</h3>
-                        
-                        <div class="space-y-6">
-                            <div class="flex items-start">
-                                <div class="flex-shrink-0 bg-blue-100 dark:bg-blue-900 p-3 rounded-lg">
-                                    <i class="fas fa-map-marker-alt text-blue-600 dark:text-blue-400"></i>
-                                </div>
-                                <div class="ml-4">
-                                    <h4 class="text-lg font-bold text-gray-900 dark:text-white">Location</h4>
-                                    <p class="text-gray-600 dark:text-gray-400">Cyber Security Tower</p>
-                                    <p class="text-gray-600 dark:text-gray-400">Digital District, Tech City</p>
-                                    <p class="text-gray-600 dark:text-gray-400">India</p>
-                                </div>
-                            </div>
-                            
-                            <div class="flex items-start">
-                                <div class="flex-shrink-0 bg-green-100 dark:bg-green-900 p-3 rounded-lg">
-                                    <i class="fas fa-envelope text-green-600 dark:text-green-400"></i>
-                                </div>
-                                <div class="ml-4">
-                                    <h4 class="text-lg font-bold text-gray-900 dark:text-white">Email</h4>
-                                    <p class="text-gray-600 dark:text-gray-400">contact@altafrj19.com</p>
-                                    <p class="text-gray-600 dark:text-gray-400">support@altafrj19.com</p>
-                                </div>
-                            </div>
-                            
-                            <div class="flex items-start">
-                                <div class="flex-shrink-0 bg-purple-100 dark:bg-purple-900 p-3 rounded-lg">
-                                    <i class="fas fa-phone-alt text-purple-600 dark:text-purple-400"></i>
-                                </div>
-                                <div class="ml-4">
-                                    <h4 class="text-lg font-bold text-gray-900 dark:text-white">Phone</h4>
-                                    <p class="text-gray-600 dark:text-gray-400">+91 8002296181</p>
-                                    <p class="text-gray-600 dark:text-gray-400">Mon-Fri, 9:00 AM - 6:00 PM</p>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="mt-10">
-                            <h4 class="text-lg font-bold text-gray-900 dark:text-white mb-4">Follow Me</h4>
-                            <div class="flex space-x-4">
-                                <a href="#" class="w-10 h-10 bg-gray-200 dark:bg-gray-600 rounded-full flex items-center justify-center hover:bg-blue-600 hover:text-white transition">
-                                    <i class="fab fa-linkedin-in"></i>
-                                </a>
-                                <a href="#" class="w-10 h-10 bg-gray-200 dark:bg-gray-600 rounded-full flex items-center justify-center hover:bg-blue-400 hover:text-white transition">
-                                    <i class="fab fa-twitter"></i>
-                                </a>
-                                <a href="#" class="w-10 h-10 bg-gray-200 dark:bg-gray-600 rounded-full flex items-center justify-center hover:bg-gray-700 hover:text-white transition">
-                                    <i class="fab fa-github"></i>
-                                </a>
-                                <a href="#" class="w-10 h-10 bg-gray-200 dark:bg-gray-600 rounded-full flex items-center justify-center hover:bg-red-600 hover:text-white transition">
-                                    <i class="fab fa-youtube"></i>
-                                </a>
-                            </div>
-                        </div>
-                        
-                        <div class="mt-10">
-                            <div class="p-4 bg-gray-100 dark:bg-gray-600 rounded-lg">
-                                <h4 class="font-bold text-gray-900 dark:text-white mb-2">Security Tip of the Day</h4>
-                                <p class="text-sm text-gray-600 dark:text-gray-300">"Always enable multi-factor authentication (MFA) for your critical accounts. A second layer of security can prevent 99.9% of account compromise attacks."</p>
-                            </div>
+                    </div>
+                    
+                    <div class="flex justify-between">
+                        <span>बैंक निफ्टी</span>
+                        <div class="flex items-center">
+                            <span class="font-medium mr-2">43,567.75</span>
+                            <span class="text-xs bg-red-100 text-red-800 px-1 py-0.5 rounded">-85.30 (0.20%)</span>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="bg-gray-800 text-gray-300 py-12">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        </section>
+    </main>
+    
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="container mx-auto px-4">
             <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
                 <div>
-                    <div class="flex items-center">
-                        <div class="w-8 h-8 rounded-full bg-blue-500 flex items-center justify-center">
-                            <i class="fas fa-shield-alt text-white"></i>
-                        </div>
-                        <span class="ml-2 text-xl font-bold text-white">Altaf Raja</span>
-                    </div>
-                    <p class="mt-4 text-sm">Protecting your digital world with cutting-edge cybersecurity solutions since 2013.</p>
+                    <h4 class="text-lg font-bold mb-4">भारत टाइम्स</h4>
+                    <p class="text-sm text-gray-400">देश की सबसे विश्वसनीय न्यूज वेबसाइट। ताज़ा और सटीक खबरें, विश्लेषण और अपडेट्स।</p>
                 </div>
                 
                 <div>
-                    <h3 class="text-white font-bold text-lg mb-4">Services</h3>
+                    <h4 class="text-lg font-bold mb-4">कैटेगरीज</h4>
                     <ul class="space-y-2">
-                        <li><a href="#" class="hover:text-blue-400 transition">Penetration Testing</a></li>
-                        <li><a href="#" class="hover:text-blue-400 transition">Security Audits</a></li>
-                        <li><a href="#" class="hover:text-blue-400 transition">Incident Response</a></li>
-                        <li><a href="#" class="hover:text-blue-400 transition">Security Training</a></li>
+                        <li><a href="#" class="text-sm text-gray-400 hover:text-white">राजनीति</a></li>
+                        <li><a href="#" class="text-sm text-gray-400 hover:text-white">खेल</a></li>
+                        <li><a href="#" class="text-sm text-gray-400 hover:text-white">मनोरंजन</a></li>
+                        <li><a href="#" class="text-sm text-gray-400 hover:text-white">व्यापार</a></li>
+                        <li><a href="#" class="text-sm text-gray-400 hover:text-white">देश-विदेश</a></li>
                     </ul>
                 </div>
                 
                 <div>
-                    <h3 class="text-white font-bold text-lg mb-4">Resources</h3>
+                    <h4 class="text-lg font-bold mb-4">कंपनी</h4>
                     <ul class="space-y-2">
-                        <li><a href="#" class="hover:text-blue-400 transition">Blog</a></li>
-                        <li><a href="#" class="hover:text-blue-400 transition">Security Tools</a></li>
-                        <li><a href="#" class="hover:text-blue-400 transition">Whitepapers</a></li>
-                        <li><a href="#" class="hover:text-blue-400 transition">Vulnerability DB</a></li>
+                        <li><a href="#" class="text-sm text-gray-400 hover:text-white">हमारे बारे में</a></li>
+                        <li><a href="#" class="text-sm text-gray-400 hover:text-white">कैरियर</a></li>
+                        <li><a href="#" class="text-sm text-gray-400 hover:text-white">गोपनीयता नीति</a></li>
+                        <li><a href="#" class="text-sm text-gray-400 hover:text-white">संपर्क करें</a></li>
                     </ul>
                 </div>
                 
                 <div>
-                    <h3 class="text-white font-bold text-lg mb-4">Legal</h3>
-                    <ul class="space-y-2">
-                        <li><a href="#" class="hover:text-blue-400 transition">Privacy Policy</a></li>
-                        <li><a href="#" class="hover:text-blue-400 transition">Terms of Service</a></li>
-                        <li><a href="#" class="hover:text-blue-400 transition">Cookie Policy</a></li>
-                        <li><a href="#" class="hover:text-blue-400 transition">GDPR Compliance</a></li>
-                    </ul>
-                </div>
-            </div>
-            
-            <div class="border-t border-gray-700 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
-                <p class="text-sm">© 2023 Altaf Raja Cybersecurity. All rights reserved.</p>
-                <div class="flex space-x-4 mt-4 md:mt-0">
-                    <a href="#" class="text-sm hover:text-blue-400 transition">Sitemap</a>
-                    <a href="#" class="text-sm hover:text-blue-400 transition">Cookie Settings</a>
-                </div>
-            </div>
-        </div>
-    </footer>
-
-    <script>
-        // Dark mode toggle
-        const themeToggle = document.getElementById('theme-toggle');
-        const mobileThemeToggle = document.getElementById('mobile-theme-toggle');
-        const themeIconDark = document.getElementById('theme-icon-dark');
-        const themeIconLight = document.getElementById('theme-icon-light');
-        const mobileThemeIconDark = document.getElementById('mobile-theme-icon-dark');
-        const mobileThemeIconLight = document.getElementById('mobile-theme-icon-light');
-        
-        function toggleDarkMode() {
-            document.documentElement.classList.toggle('dark');
-            const isDark = document.documentElement.classList.contains('dark');
-            localStorage.setItem('darkMode', isDark);
-            
-            themeIconDark.classList.toggle('hidden', isDark);
-            themeIconLight.classList.toggle('hidden', !isDark);
-            mobileThemeIconDark.classList.toggle('hidden', isDark);
-            mobileThemeIconLight.classList.toggle('hidden', !isDark);
-        }
-        
-        // Check for saved user preference or system preference
-        if (localStorage.getItem('darkMode') === 'true' || 
-            (!localStorage.getItem('darkMode') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-            document.documentElement.classList.add('dark');
-            themeIconDark.classList.add('hidden');
-            themeIconLight.classList.remove('hidden');
-            mobileThemeIconDark.classList.add('hidden');
-            mobileThemeIconLight.classList.remove('hidden');
-        }
-        
-        themeToggle.addEventListener('click', toggleDarkMode);
-        mobileThemeToggle.addEventListener('click', toggleDarkMode);
-        
-        // Mobile menu toggle
-        const mobileMenuButton = document.getElementById('mobile-menu-button');
-        const mobileMenu = document.getElementById('mobile-menu');
-        
-        mobileMenuButton.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-        });
-        
-        // Typewriter effect
-        const typewriterElements = document.querySelectorAll('.typewriter h2');
-        if (typewriterElements.length > 0) {
-            typewriterElements.forEach(el => {
-                const text = el.innerText;
-                el.innerText = '';
-                
-                let i = 0;
-                const typing = setInterval(() => {
-                    if (i < text.length) {
-                        el.innerText += text.charAt(i);
-                        i++;
-                    } else {
-                        clearInterval(typing);
-                    }
-                }, 100);
-            });
-        }
-        
-        // Terminal command simulation
-        const commandLine = document.querySelector('.command-line input');
-        if (commandLine) {
-            commandLine.addEventListener('keypress', (e) => {
-                if (e.key === 'Enter') {
-                    const command = commandLine.value.trim().toLowerCase();
-                    const terminalContent = document.querySelector('.terminal-content');
-                    const newLine = document.createElement('div');
-                    newLine.className = 'font-firacode text-green-400 mb-2';
-                    newLine.innerHTML = `altaf@cybershield:~$ <span class="text-white">${command}</span>`;
-                    terminalContent.insertBefore(newLine, commandLine.parentNode);
-                    
-                    let response = '';
-                    
-                    if (command === 'help') {
-                        response = `
-                            <div class="font-firacode text-white mb-4">
-                                <p>Available commands:</p>
-                                <p>- help: Show this help message</p>
-                                <p>- contact: Show contact information</p>
-                                <p>- clear: Clear terminal</p>
-                                <p>- tools: List security tools</p>
-                            </div>
-                        `;
-                    } else if (command === 'contact') {
-                        response = `
-                            <div class="font-firacode text-white mb-4">
-                                <p>Email: contact altafrj19@gmail.com</p>
-                                <p>Phone: +91 8002296181</p>
-                                <p>Location: Tech City, India</p>
-                            </div>
-                        `;
-                    } else if (command === 'clear') {
-                        const lines = document.querySelectorAll('.terminal-content > div:not(.command-line)');
-                        lines.forEach(line => line.remove());
-                        commandLine.value = '';
-                        return;
-                    } else if (command === 'tools') {
-                        response = `
-                            <div class="font-firacode text-white mb-4">
-                                <p>Security Tools:</p>
-                                <p>- Nmap</p>
-                                <p>- Burp Suite</p>
-                                <p>- Metasploit</p>
-                                <p>- Wireshark</p>
-                                <p>- John the Ripper</p>
-                            </div>
-                        `;
-                    } else if (command) {
-                        response = `<div class="font-firacode text-white mb-4">Command not found: ${command}</div>`;
-                    }
-                    
-                    const responseElement = document.createElement('div');
-                    responseElement.innerHTML = response;
-                    terminalContent.insertBefore(responseElement, commandLine.parentNode);
-                    commandLine.value = '';
-                    
-                    terminalContent.scrollTop = terminalContent.scrollHeight;
-                }
-            });
-        }
-        
-        // Smooth scrolling for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                
-                const targetId = this.getAttribute('href');
-                if (targetId === '#') return;
-                
-                const targetElement = document.querySelector(targetId);
-                if (targetElement) {
-                    targetElement.scrollIntoView({
-                        behavior: 'smooth'
-                    });
-                    
-                    // Close mobile menu if open
-                    mobileMenu.classList.add('hidden');
-                }
-            });
-        });
-    </script>
-</body>
-</html>
+                    <h4 class="text-lg font-bold mb-4">हमसे जुड़ें</h4>
+                    <div class="flex space-x-4 mb-4">
+                        <a href="#" class="bg-gray-700 hover:bg-gray-600 w-8 h-8 rounded-full flex items-center justify-center">
+                            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z"/></svg>
+                        </a>
+                        <a href="#" class="bg-gray-700 hover:bg-gray-600 w-8 h-8 rounded-full flex items-center justify-center">
+                            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.067.06 1.407.06 4.123v.08c0 2.643-.012 2.987-.06 4.043-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.067.048-1.407.06-4.123.06h-.08c-2.643 0-2.987-.012-4.043-.06-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.047-1.024-.06-1.379-.06-3.808v-.63c0-2.43.013-2.784.06-3.808.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772A4.902 4.902 0 015.45 2.525c.636-.247 1.363-.416 2.427-.465C8.901 2.013 9.256 2 11.685 2h.63zm-.081 1.802h-.468c-2.456 0-2.784.011-3.807.058-.975.045-1.504.207-1.857.344-.467.182-.8.398-1.15.748-.35.35-.566.683-.748 1.15-.137.353-.3.882-.344 1.857-.047 1.023-.058 1.351-.058 3.807v.468c0 2.456.011 2.784.058 3.807.045.975.207 1.504.344 1.857.182.466.399.8.748 1.15.35.35.683.566 1.15.748.353.137.882.3 1.857.344 1.054.048 1.37.058 4.041.058h
